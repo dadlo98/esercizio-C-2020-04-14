@@ -100,6 +100,8 @@ void swap(contact_type *x, contact_type *y)
     *y = t;
 }
 
+//***uso bubble sort come metodo di ordinamento della rubrica***
+
 void sort_by_name()
 {
     unsigned int length = 0;
@@ -190,6 +192,7 @@ int main(int argc, char *argv[])
     //ordiniamo la rubrica per nome
     sort_by_name();
     printf("\n\n");
+    //stampiamo la rubrica ordinata
     for (int i = 0; i < ADDRESS_BOOK_SIZE; i++)
     {
         if (address_book[i] != NULL)
