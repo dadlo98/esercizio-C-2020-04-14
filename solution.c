@@ -53,11 +53,14 @@ int add_to_address_book(contact_type *c)
     for (int i = 0; i < ADDRESS_BOOK_SIZE; i++)
     {
         if (address_book[i] == NULL)
-        {
+        {   
+            c->id = i;
             address_book[i] = c;
             return address_book[i]->id;
         }
     }
+
+    return -1;
 }
 
 int remove_from_address_book(contact_type *c)
@@ -75,6 +78,8 @@ int remove_from_address_book(contact_type *c)
     }
     if (check == ADDRESS_BOOK_SIZE)
         return -1;
+        
+    return -1;
 }
 
 int search_in_address_book(contact_type *c)
@@ -91,6 +96,8 @@ int search_in_address_book(contact_type *c)
     }
     if (check == ADDRESS_BOOK_SIZE)
         return -1;
+
+    return -1;
 }
 
 void swap(contact_type *x, contact_type *y)
@@ -99,8 +106,6 @@ void swap(contact_type *x, contact_type *y)
     *x = *y;
     *y = t;
 }
-
-//***uso bubble sort come metodo di ordinamento della rubrica***
 
 void sort_by_name()
 {
@@ -192,7 +197,6 @@ int main(int argc, char *argv[])
     //ordiniamo la rubrica per nome
     sort_by_name();
     printf("\n\n");
-    //stampiamo la rubrica ordinata
     for (int i = 0; i < ADDRESS_BOOK_SIZE; i++)
     {
         if (address_book[i] != NULL)
